@@ -20,7 +20,6 @@ class Events(commands.Cog):
         if message.author == self.bot.user:
             return
         elif not message.content.startswith('#'): 
-            await message.channel.send("Info retrieving...", delete_after = 0.5)
             print(message.content)
             response = detect_intent_texts("commandlinehelper-fvr9","123456789",message.content,"en-US")
             await self.handle_query(response=response, message = message)
@@ -30,7 +29,7 @@ class Events(commands.Cog):
         command_list = database.command_list
         name = str(response.query_result.intent.display_name)
 
-        list = ["Welome", "Fallback"]
+        list = ["Welcome", "Fallback"]
 
         if name in list:
             something = response.query_result.fulfillment_text
@@ -38,10 +37,10 @@ class Events(commands.Cog):
             return
 
 
-
+        await message.channel.send("Info retrieving...", delete_after = 0.5)
         query = {name: name}
         command = command_list.find_one(query)
-
+        
         # If no info is found, let user know
         if command is None:
             await message.channel.send("No infomation available yet! Stay tuned!")
