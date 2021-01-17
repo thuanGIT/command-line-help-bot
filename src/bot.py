@@ -1,13 +1,13 @@
 from discord.ext import commands
 import os
 import sys
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # Add path the modules
 sys.path.append("./src/cogs")
 
 # Load environment vars from .env
-#load_dotenv()
+load_dotenv()
 
 # Inialize the discord bot
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('#'), help_command=None)
