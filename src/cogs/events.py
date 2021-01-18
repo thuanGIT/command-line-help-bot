@@ -55,8 +55,7 @@ class Events(commands.Cog):
         em.add_field(name = "__Info__", value = command["info"], inline=False)
         em.add_field(name = "__Sample__", value = command["example"], inline=False)
         await message.channel.send(embed = em)
-        
-                
+
            
         
 
